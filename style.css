@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Metal+Mania&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Metal+Mania&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --highlighted_text_color: #EE524C;
+    --body_text_color: #F1F1F1;
+    --background_color: #191919;
+    --headings_text_color: #FFFF;
+}
+
+body {
+    box-sizing: border-box;
+    min-height: 100vh;
+    background-color: var(--background_color);
+    font-family: "Inter", sans-serif;
+    
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h2 {
+    font-family: "Metal Mania", serif;
+    color: var(--headings_text_color);
+}
+
+p{
+    color: var(--body_text_color);
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.bg_video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; 
+}
+.bg_video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+
+header {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Nav_Bar-Section */
+.nav_bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    transition: 0.5s;
+}
+.nav_bar.scrolled {
+    background: #131010;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+.nav_bar ul {
+    display: flex;
+    gap: 6.125rem;
+}
+.nav_bar ul li a:hover {
+    color: #F83A28;
+    transition: 0.5s;
+}
+i {
+    font-size: 32px;
+    opacity: 0;
+}
+svg {
+    width: 32px;
+    color:  white;
+    display: none;
+}
+/* Hero-Section */
+.hero_section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero_section .hero_section_content {
+    display: grid;
+    gap: 1.875rem;
+}
+.hero_section .hero_section_content h2 {
+    font-size: 4.875rem;
+    text-align: center;
+}
+.hero_section .hero_section_content h2 .name {
+    color: var(--highlighted_text_color);
+}
+.hero_section .hero_section_content .icon {
+    width: 132px;
+}
+.hero_section .hero_section_content p {
+    max-width: 67.75rem;
+}
+.hero_section .hero_section_content .btn{
+    font-size: .9375rem;
+    width: 190px;
+    padding: 14px 6px;
+    background-color: #131010;
+    border: 2px solid var(--highlighted_text_color);
+    cursor: pointer;
+    color: white;
+    font-family: "Metal Mania", serif;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.hero_section .hero_section_content  .btn:hover {
+    background-color: #F83A28;
+    color: black;
+    transition: 0.5s;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: rgb(226, 67, 56) 5px 2px 2px;
+}
+.hero_section .hero_section_content  .btn::before,
+.hero_section .hero_section_content  .btn::after {
+    content: '';
+}
+.hero_section .hero_section_content  .btn:hover::before,
+.hero_section .hero_section_content  .btn:hover::after {
+    content: '🔥';
+    transition: 0.5s;
+}
+
+/* Projects-Section */
+.projects_section {
+    background: rgba(0, 0, 0, 0.5);
+}
+.projects_section .my_projects {
+    max-width: 59.9%;
+    margin: auto;
+    box-sizing: border-box;
+}
+.my_projects h2 {
+    font-size: 4rem;
+    align-items: center;
+    display: flex;
+    margin-bottom: 102px;
+    justify-content: center;
+}
+.my_projects h2 img {
+    max-width: 132px;
+    height: auto;
+}
+.my_projects .projects {
+    max-width: 66.1875rem;
+    display: flex;
+    align-items: center;
+    gap: 3.75rem;
+    margin-bottom: 102px;
+}
+.my_projects .projects:last-child {
+    margin-bottom: 0;
+}
+.my_projects .projects.gym_rat img {
+    max-width: 519px;
+    height: auto;
+}
+.my_projects .projects img {
+    max-width: 519px;
+    height: 250px;
+}
+.my_projects .projects .right_text {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+.my_projects .projects .right_text h2 {
+    font-size: 2.25rem;
+    margin: 0;
+}
+.my_projects .projects .right_text .website_link p a {
+    color: var(--highlighted_text_color);
+}
+
+/* Contact-Section */
+.contact_section {
+    background: rgba(0, 0, 0, 0.5);
+    height: 584px;
+    align-items: center;
+    display: flex;
+}
+.contact_section .contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    margin: 0 auto;
+}
+.contact h2 {
+    font-size: 6.25rem;
+}
+.contact .socials {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+}
+.contact .socials h2 {
+    font-size: 3rem;
+}
+.contact .socials .social_links {
+    display: flex;
+    gap: 3.125rem;
+}
+.contact .socials .social_links img {
+    width: 82px;
+}
+.contact .socials a {
+    background: #131010;
+    width: 200px;
+    height: 50px;
+    font-family: "Metal Mania", sans-serif;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding-inline: 15px;
+    border: 2px solid var(--highlighted_text_color);
+}
+.contact .socials a:hover {
+    background-color: #F83A28;
+    color: black;
+    transition: 0.5s;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: rgb(226, 67, 56) 5px 2px 2px;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: .875rem;
+    }
+
+    .nav_bar {
+        display: flex;
+        align-items: center;
+        position: fixed;
+        left: -1000px;
+        width: 100%;
+        background-color: black;
+        height: 100%;
+    }
+    .nav_bar ul {
+        display: flex;
+        gap: 6.125rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav_bar ul li {
+        width: 100%;
+    }
+    .nav_bar ul li a {
+        font-size: 1.5rem;
+        width: 100%;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s;
+    }
+    .nav_bar ul li a:hover{
+        background: rgb(66, 65, 65);
+    }
+    .nav_bar.clicked {
+        left: 0;
+    }
+    i {
+        opacity: 1;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+    svg {
+        display: block;
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        z-index: 1;
+    }
+
+    .hero_section .hero_section_content {
+        display: flex;
+        gap: 1.875rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero_section .hero_section_content h2 {
+        font-size: 2.6875rem;
+        text-align: center;
+    }
+    .hero_section .hero_section_content .icon {
+        width: 53px;
+    }
+    .hero_section .hero_section_content p {
+        font-size: 1rem;
+        text-align: center;
+    }
+    
+    .projects_section .my_projects {
+        max-width: 100%;
+        margin-inline: 5px;
+    }
+    .my_projects h2 {
+        font-size: 2.6875rem;
+       
+        margin-bottom: 50px;
+    }
+    .my_projects h2 img {
+        max-width: 53px;
+        height: auto;
+    }
+    .my_projects .projects {
+        max-width: 66.1875rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5625rem;
+        margin-bottom: 70px;
+    }
+    .my_projects .projects.gym_rat img {
+        max-width: 250px;
+        height: auto;
+    }
+    .my_projects .projects img {
+        max-width: 250px;
+        height: auto;
+    }
+    .my_projects .projects .right_text {
+        gap: 1.25rem;
+    }
+    .my_projects .projects .right_text h2 {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+    .my_projects .projects .right_text p {
+        font-size: .75rem;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .contact_section .contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-inline: .625rem;
+        gap: 1.25rem;
+    }
+    .contact h2 {
+        font-size: 3.125rem;
+        text-align: center;
+    }
+    .contact .socials {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+    .contact .socials h2 {
+        font-size: 1.875rem;
+    }
+    .contact .socials .social_links {
+        display: flex;
+        gap: 1.875rem;
+    }
+    .contact .socials .social_links img {
+        width: 40px;
+    }
+    
+  }
