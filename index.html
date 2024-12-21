@@ -11,86 +11,103 @@
     <div class="bg_video">
         <video src="./Portfolio images/202412-18-0.mp4" autoplay loop muted></video>
     </div>
-    <header>
-        <nav class="nav_bar" id="nav_bar">
-            <ul>
-                <li class="nav_links"><a href="#hero_section">Home</a></li>
-                <li class="nav_links"><a href="#projects_section">Projects</a></li>
-                <li class="nav_links"><a href="#contact_section">Contact</a></li>
+    <!-- Navbar -->
+     <navbar class="navbar">
+        <div class="navbar__container">
+            <div class="menu-toggle" id="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>
+            <ul class="navbar__menu" id="navbar__menu">
+                <li class="nav__items">
+                    <a href="#hero__section" class="nav__links">Home</a>
+                </li>
+                <li class="nav__items">
+                    <a href="#projects__section" class="nav__links">Projects</a>
+                </li>
+                <li class="nav__items">
+                    <a href="#contact__section" class="nav__links">Contact</a>
+                </li>
             </ul>
-        </nav>
-        <div class="menu" id="menu">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
         </div>
+     </navbar>
 
-        <div class="hero_section" id="hero_section">
-            <div class="hero_section_content">
-                <h2>Hi, i'm <span class="name">John Paul</span>
-                <img src="./Portfolio images/hand_14854822.png" alt="hand" class="icon"></h2>
-                <p>I'm a junior front-end developer and student with a solid understanding of programming. I'm passionate about building responsive and user-friendly websites while continuously learning and improving my front-end development skills. I focus on turning creative ideas into functional websites using HTML, CSS, and JavaScript.</p>
-                <a href="#projects_section" class="btn nav_links" id="btn">Let's Rock the Projects!</a>
+    <!-- Hero Section -->
+     <section class="hero__section" id="hero__section">
+        <div class="overlay"></div>
+        <div class="hero__container">
+            <div class="hero__headings">
+                <h2>Hi, <span class="higlighted__text">Im John Paul</span></h2>
+                <img src="./Portfolio images/hand_14854822.png" alt="hand holding a microphone">
+            </div>
+            <p>I'm a junior front-end developer and student with a solid understanding of programming. I'm passionate about building responsive and user-friendly websites while continuously learning and improving my front-end development skills. I focus on turning creative ideas into functional websites using HTML, CSS, and JavaScript.</p>
+            <div class="hero__btn btn">
+                <a href="#projects__section">Explore My Projects Below</a>
             </div>
         </div>
-    </header>
+     </section>
 
-    <!-- Projects-Section -->
-    <section class="projects_section" id="projects_section">
-        <div class="my_projects">
-            <h2>My Projects <img src="./Portfolio images/electric-guitar_2131874.png" alt=""></h2>
-            <div class="projects gym_rat">
-                <img src="./Portfolio images/Gymrat.png" alt="fitness website">
-                <div class="right_text">
+    <!-- My Projects Section -->
+     <section class="projects__section" id="projects__section">
+        <div class="projects__container">
+            <div class="projects__headings">
+                <h2>My Projects</h2>
+                <img src="./Portfolio images/electric-guitar_2131874.png" alt="electric guitar">
+            </div>
+            <div class="projects">
+                <img src="./Portfolio images/Gymrat.png" alt="Fitness Website">
+                <div class="txt__container">
                     <h2>Gym Rat - Fitness Website</h2>
                     <p>Gym Rat is a fitness website concept designed in Figma, featuring a clean, user-friendly interface with workout plans, nutrition tips, and tools to help users achieve their fitness goals.</p>
                 </div>
             </div>
 
             <div class="projects">
-                <img src="./Portfolio images/beanscene.png" alt="fitness website">
-                <div class="right_text">
+                <img src="./Portfolio images/beanscene.png" alt="Coffee shop Website">
+                <div class="txt__container">
                     <h2>Bean Scene - Coffee Shop Website</h2>
                     <p>Bean Scene is a coffee shop UI I coded using HTML, CSS, and JavaScript, based on a Figma community design, to enhance my front-end development skills.</p>
                 </div>
             </div>
 
             <div class="projects">
-                <img src="./Portfolio images/netlix.png" alt="fitness website">
-                <div class="right_text">
+                <img src="./Portfolio images/netlix.png" alt="Netflix">
+                <div class="txt__container">
                     <h2>Netflix UI Clone</h2>
                     <p>A Netflix UI clone built with HTML, CSS, and JavaScript to practice front-end development. The project highlights responsive design and clean layout replication.</p>
                 </div>
             </div>
 
             <div class="projects">
-                <img src="./Portfolio images/logicode.png" alt="fitness website">
-                <div class="right_text">
+                <img src="./Portfolio images/logicode.png" alt="LogiCode blogsite">
+                <div class="txt__container">
                     <h2>LogiCode - Blogsite</h2>
                     <p>LogiCode is a Computer Programming blogsite designed in Wix. I coded the site separately with HTML, CSS, and JavaScript to enhance its interactivity and functionality.</p>
-                    <div class="website_link">
-                        <p>Visit the Website: <a href=" https://johnpaulcruz932.wixsite.com/my-site-1">https://johnpaulcruz932.wixsite.com/my-site-1</a></p>
-                    </div>
                 </div>
             </div>
         </div>
-    </section>
+     </section>
 
-    <!-- Contact-Section -->
-
-    <section class="contact_section" id="contact_section">
-        <div class="contact">
-            <h2>Lets Rock <br>and Build <br>Something Cool</h2>
+     <!-- Contact Section -->
+      <section class="contact__section" id="contact__section">
+        <div class="contact__container">
+            <div class="contact__headings">
+                <h2>Lets Rock and build something cool</h2>
+            </div>
             <div class="socials">
                 <h2>My Socials</h2>
-                <div class="social_links">
-                    <img src="./Portfolio images/facebook.png" alt="Facebook icon">
-                    <img src="./Portfolio images/instagram.png" alt="Instagram icon">
-                    <img src="./Portfolio images/linkedin.png" alt="LinkedIn icon">
+                <div class="social__links">
+                    <img src="./Portfolio images/facebook.png" alt="facebook">
+                    <img src="./Portfolio images/instagram.png" alt="instagram">
+                    <img src="./Portfolio images/linkedin.png" alt="linkedin">
                 </div>
-                <a href="./resume/John Paul V. Cruz.pdf" download>Download My Resume</a>
+                <div class="resume__btn btn">
+                    <a href="./resume/John Paul V. Cruz.pdf" download>Download My Resume</a>
+                </div>
             </div>
         </div>
-    </section>
-
+      </section>
+     <script src="portfolio.js"></script>
 </body>
-<script src="portfolio.js"></script>
 </html>

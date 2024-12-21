@@ -4,6 +4,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
@@ -11,14 +12,13 @@
     --body_text_color: #F1F1F1;
     --background_color: #191919;
     --headings_text_color: #FFFF;
+    --cards_color: #3d0075;
 }
 
 body {
-    box-sizing: border-box;
     min-height: 100vh;
     background-color: var(--background_color);
     font-family: "Inter", sans-serif;
-    
 }
 
 html {
@@ -42,7 +42,16 @@ a {
     text-decoration: none;
     color: white;
 }
-
+.overlay {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    position: fixed;
+}
 .bg_video {
     position: fixed;
     top: 0;
@@ -64,345 +73,381 @@ a {
     object-fit: cover;
 }
 
-header {
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-/* Nav_Bar-Section */
-.nav_bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 70px;
-    position: fixed;
-    z-index: 1;
+/* Navigation Bar*/
+.navbar {
     width: 100%;
-    transition: 0.5s;
-}
-.nav_bar.scrolled {
-    background: #131010;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-}
-.nav_bar ul {
-    display: flex;
-    gap: 6.125rem;
-}
-.nav_bar ul li a:hover {
-    color: #F83A28;
-    transition: 0.5s;
-}
-i {
-    font-size: 32px;
-    opacity: 0;
-}
-svg {
-    width: 32px;
-    color:  white;
-    display: none;
-}
-/* Hero-Section */
-.hero_section {
-    height: 100vh;
+    position: fixed;
+    background: black;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 70px;
+    font-size: 1.2rem;
+    top: 0;
+    z-index: 999;
 }
-.hero_section .hero_section_content {
-    display: grid;
-    gap: 1.875rem;
-}
-.hero_section .hero_section_content h2 {
-    font-size: 4.875rem;
-    text-align: center;
-}
-.hero_section .hero_section_content h2 .name {
-    color: var(--highlighted_text_color);
-}
-.hero_section .hero_section_content .icon {
-    width: 132px;
-}
-.hero_section .hero_section_content p {
-    max-width: 67.75rem;
-}
-.hero_section .hero_section_content .btn{
-    font-size: .9375rem;
-    width: 190px;
-    padding: 14px 6px;
-    background-color: #131010;
-    border: 2px solid var(--highlighted_text_color);
-    cursor: pointer;
-    color: white;
-    font-family: "Metal Mania", serif;
-    box-sizing: border-box;
+.navbar__container {
     display: flex;
-    justify-content: center;
+    height: 70px;
     align-items: center;
-    
 }
-
-.hero_section .hero_section_content  .btn:hover {
-    background-color: #F83A28;
-    color: black;
-    transition: 0.5s;
-    border: 2px solid black;
-    border-radius: 5px;
-    box-shadow: rgb(226, 67, 56) 5px 2px 2px;
-}
-.hero_section .hero_section_content  .btn::before,
-.hero_section .hero_section_content  .btn::after {
-    content: '';
-}
-.hero_section .hero_section_content  .btn:hover::before,
-.hero_section .hero_section_content  .btn:hover::after {
-    content: '🔥';
-    transition: 0.5s;
-}
-
-/* Projects-Section */
-.projects_section {
-    background: rgba(0, 0, 0, 0.5);
-}
-.projects_section .my_projects {
-    max-width: 59.9%;
-    margin: auto;
-    box-sizing: border-box;
-}
-.my_projects h2 {
-    font-size: 4rem;
-    align-items: center;
+.navbar__menu {
     display: flex;
-    margin-bottom: 102px;
-    justify-content: center;
-}
-.my_projects h2 img {
-    max-width: 132px;
-    height: auto;
-}
-.my_projects .projects {
-    max-width: 66.1875rem;
-    display: flex;
-    align-items: center;
-    gap: 3.75rem;
-    margin-bottom: 102px;
-}
-.my_projects .projects:last-child {
-    margin-bottom: 0;
-}
-.my_projects .projects.gym_rat img {
-    max-width: 519px;
-    height: auto;
-}
-.my_projects .projects img {
-    max-width: 519px;
-    height: 250px;
-}
-.my_projects .projects .right_text {
-    display: flex;
-    flex-direction: column;
     gap: 2.5rem;
 }
-.my_projects .projects .right_text h2 {
-    font-size: 2.25rem;
-    margin: 0;
-}
-.my_projects .projects .right_text .website_link p a {
+.nav__links:hover {
     color: var(--highlighted_text_color);
+    transition: all 0.5s ease;
 }
-
-/* Contact-Section */
-.contact_section {
-    background: rgba(0, 0, 0, 0.5);
-    height: 584px;
-    align-items: center;
-    display: flex;
-}
-.contact_section .contact {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 85%;
-    margin: 0 auto;
-}
-.contact h2 {
-    font-size: 6.25rem;
-}
-.contact .socials {
-    display: flex;
+.menu-toggle {
+    display: none;
+    gap: 5px;
     flex-direction: column;
-    gap: 2rem;
-    text-align: center;
+    cursor: pointer;
 }
-.contact .socials h2 {
-    font-size: 3rem;
-}
-.contact .socials .social_links {
-    display: flex;
-    gap: 3.125rem;
-}
-.contact .socials .social_links img {
-    width: 82px;
-}
-.contact .socials a {
-    background: #131010;
-    width: 200px;
-    height: 50px;
-    font-family: "Metal Mania", sans-serif;
-    font-size: 1.25rem;
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    padding-inline: 15px;
-    border: 2px solid var(--highlighted_text_color);
-}
-.contact .socials a:hover {
-    background-color: #F83A28;
-    color: black;
-    transition: 0.5s;
-    border: 2px solid black;
-    border-radius: 5px;
-    box-shadow: rgb(226, 67, 56) 5px 2px 2px;
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
 }
 
-@media only screen and (max-width: 768px) {
-    body {
-        font-size: .875rem;
-    }
-
-    .nav_bar {
+/* Mobile Screen */
+@media screen and (max-width: 960px) {
+    .navbar__menu {
         display: flex;
-        align-items: center;
-        position: fixed;
-        left: -1000px;
-        width: 100%;
-        background-color: black;
-        height: 100%;
-    }
-    .nav_bar ul {
-        display: flex;
-        gap: 6.125rem;
         flex-direction: column;
-        align-items: center;
-    }
-    .nav_bar ul li {
-        width: 100%;
-    }
-    .nav_bar ul li a {
-        font-size: 1.5rem;
-        width: 100%;
-        height: 70px;
-        display: flex;
-        align-items: center;
         justify-content: center;
-        transition: 0.5s;
-    }
-    .nav_bar ul li a:hover{
-        background: rgb(66, 65, 65);
-    }
-    .nav_bar.clicked {
-        left: 0;
-    }
-    i {
-        opacity: 1;
+        width: 100%;
+        height: 90vh;
+        align-items: center;
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: 0;
+        right: -1000px;
+        background: black;
+        gap: 6.25rem;
     }
-    svg {
-        display: block;
+    .nav__items {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .nav__items:active{
+        background: rgb(54, 54, 54);
+    }
+    .navbar__menu.active {
+        right: 0px;
+        transition: all 0.5s ease;
+    }
+    .menu-toggle {
+        display: flex;
         position: fixed;
-        right: 20px;
-        top: 20px;
+        right: 40px;
         z-index: 1;
     }
+    .menu-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+        transition: 0.5s;
+    }
+    .menu-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+        transition: 0.5s;
+    }
+    .menu-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+        transition: 0.5s;
+    }
+}
 
-    .hero_section .hero_section_content {
-        display: flex;
-        gap: 1.875rem;
-        flex-direction: column;
-        align-items: center;
-    }
-    .hero_section .hero_section_content h2 {
-        font-size: 2.6875rem;
-        text-align: center;
-    }
-    .hero_section .hero_section_content .icon {
-        width: 53px;
-    }
-    .hero_section .hero_section_content p {
-        font-size: 1rem;
-        text-align: center;
-    }
-    
-    .projects_section .my_projects {
-        max-width: 100%;
-        margin-inline: 5px;
-    }
-    .my_projects h2 {
-        font-size: 2.6875rem;
-       
-        margin-bottom: 50px;
-    }
-    .my_projects h2 img {
-        max-width: 53px;
-        height: auto;
-    }
-    .my_projects .projects {
-        max-width: 66.1875rem;
-        display: flex;
-        align-items: center;
-        gap: 1.5625rem;
-        margin-bottom: 70px;
-    }
-    .my_projects .projects.gym_rat img {
-        max-width: 250px;
-        height: auto;
-    }
-    .my_projects .projects img {
-        max-width: 250px;
-        height: auto;
-    }
-    .my_projects .projects .right_text {
-        gap: 1.25rem;
-    }
-    .my_projects .projects .right_text h2 {
-        font-size: 1.5rem;
-        margin: 0;
-    }
-    .my_projects .projects .right_text p {
-        font-size: .75rem;
-        display: flex;
-        flex-wrap: wrap;
-    }
+/* Hero Section */
+.hero__section {
+    width: 50%;
+    margin: 0 auto;
+    height: 100vh;
+    align-items: center;
+    display: flex;
+}
+.hero__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    text-align: center;
+    gap: 1.875rem;
+}
+.hero__headings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.higlighted__text {
+    color: var(--highlighted_text_color);
+}
+.hero__headings h2 {
+    font-size: 4.875rem;
+}
+.hero__headings img {
+    width: 132px;
+}
+.hero__container p {
+    font-size: 1.25rem;
+}
+.btn {
+    width: 250px;
+    height: 50px;
+    background: #2b2727;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #EE524C;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.hero__btn a {
+    width: 100%;
+    font-size: 1.125rem;
+    font-family: "Metal Mania", sans-serif;
+}
+.btn:hover {
+    background: #EE524C;
+    box-shadow: #581d1b 5px 7px 5px;
+    border-radius: 5px;
+    border: 2px solid black;
+}
 
-    .contact_section .contact {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+/* Mobile Screen */
+@media screen and (max-width: 960px) {
+    .hero__section {
         width: 100%;
         margin-inline: .625rem;
-        gap: 1.25rem;
+        
     }
-    .contact h2 {
-        font-size: 3.125rem;
-        text-align: center;
-    }
-    .contact .socials {
-        display: flex;
+    .hero__container {
         flex-direction: column;
-        gap: 2rem;
+        align-items: center;
+    }
+    .hero__headings {
+        gap: .625rem;
+    }
+    .hero__headings h2 {
+        font-size: 50px;
+    }
+    .hero__headings img {
+        width: 60px;
+    }
+    .hero__container p {
+        font-size: 1rem;
+        width: 90%;
+    }
+}
+
+/* Projects Section */
+.projects__section {
+    width: 65%;
+    margin: 0 auto;
+}
+.projects__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4.375rem;
+}
+.projects__headings {
+    display: flex;
+    align-items: center;
+}
+.projects__headings h2 {
+    font-size: 4rem;
+}
+.projects__headings img {
+    width: 132px;
+}
+.projects {
+    display: flex;
+    align-items: center;
+    gap: 1.875rem;
+}
+.projects img {
+    width: 519px;
+}
+
+.txt__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+.txt__container h2 {
+    font-size: 2.25rem;
+}
+.txt__container p {
+    font-size: 1.25rem;
+}
+
+/* Mobile Screen */
+@media screen and (max-width: 1024px) {
+    .projects__section {
+        width: 95%;
+    }
+    .projects__container {
+        gap: 2.5rem;
+    }
+    .projects__headings {
+        gap: .625rem;
+        margin-bottom: 40px;
+    }
+    .projects__headings h2{
+        font-size: 2.75rem;
+    }
+    .projects__headings img {
+        width: 65px;
+    }
+    .projects {
+        gap: .9375rem;
+    }
+    .projects img {
+        width: 400px;
+    }
+}
+@media screen and (max-width: 960px) {
+    .projects__section {
+        width: 95%;
+    }
+    .projects__container {
+        gap: 2.5rem;
+    }
+    .projects__headings {
+        gap: .625rem;
+        margin-bottom: 40px;
+    }
+    .projects__headings h2{
+        font-size: 2.75rem;
+    }
+    .projects__headings img {
+        width: 65px;
+    }
+    .projects {
+        gap: .9375rem;
+    }
+    .projects img {
+        width: 400px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .projects__section {
+        width: 100%;
+    }
+    .projects__headings {
+        gap: .625rem;
+        margin-bottom: 40px;
+    }
+    .projects__headings h2{
+        font-size: 2.75rem;
+    }
+    .projects__headings img {
+        width: 65px;
+    }
+    .projects {
+        gap: .9375rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    .projects img {
+        width: 400px;
+    }
+    .txt__container {
         text-align: center;
+        width: 400px;
     }
-    .contact .socials h2 {
-        font-size: 1.875rem;
+    .txt__container h2 {
+        font-size: 1.625rem;
     }
-    .contact .socials .social_links {
-        display: flex;
-        gap: 1.875rem;
+    .txt__container p {
+        font-size: .875rem;
     }
-    .contact .socials .social_links img {
-        width: 40px;
+}
+
+/* Contact Section */
+.contact__section {
+    width: 85%;
+    margin: 0 auto;
+    height: 70vh;
+    padding: 50px 0px;
+}
+.contact__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contact__headings {
+    font-size: 95px;
+    width: 757px;
+}
+.socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+.socials h2 {
+    font-size: 3rem;
+}
+.social__links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+.social__links img {
+    width: 82px;
+}
+.resume__btn a {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    font-family: "Metal Mania", sans-serif;
+    font-size: 1.5rem;
+}
+
+/* Mobile Screen */
+@media screen and (max-width: 1024px) {
+    .contact__section {
+        width: 95%;
+        height: 40vh;
+    }
+    .contact__container {
+        gap: 2.5rem;
+    }
+    .contact__headings {
+        font-size: 3.125rem;
+    }
+    .socials h2 {
+        font-size: 2.125rem;
+    }
+    .social__links {
+        gap: 20px;
+    }
+    .social__links img {
+        width: 55px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contact__container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact__headings {
+        font-size: 2.125rem;
+    }
+}
+@media screen and (max-width: 425px) {
+    .contact__headings {
+        font-size: 24px;
+        text-align: center;
+        width: 300px;
+    }
+    .resume__btn {
+        margin-bottom: 20px;
     }
 }
